@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------
+Test set: uce.edu.web.api.auth.GreetingResourceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.426 s <<< FAILURE! -- in uce.edu.web.api.auth.GreetingResourceTest
+uce.edu.web.api.auth.GreetingResourceTest.testHelloEndpoint -- Time elapsed: 0.009 s <<< ERROR!
+java.lang.RuntimeException: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.test.junit.QuarkusTestExtension.throwBootFailureException(QuarkusTestExtension.java:665)
+	at io.quarkus.test.junit.QuarkusTestExtension.interceptTestClassConstructor(QuarkusTestExtension.java:760)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at io.quarkus.runner.bootstrap.StartupActionImpl.run(StartupActionImpl.java:335)
+	at io.quarkus.test.junit.QuarkusTestExtension.doJavaStart(QuarkusTestExtension.java:231)
+	at io.quarkus.test.junit.QuarkusTestExtension.ensureStarted(QuarkusTestExtension.java:639)
+	at io.quarkus.test.junit.QuarkusTestExtension.beforeAll(QuarkusTestExtension.java:684)
+	... 1 more
+Caused by: java.lang.RuntimeException: Unable to start HTTP server
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder.doServerStart(VertxHttpRecorder.java:1003)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder.startServer(VertxHttpRecorder.java:385)
+	at io.quarkus.runner.recorded.VertxHttpProcessor$openSocket1873327713.deploy_0(Unknown Source)
+	at io.quarkus.runner.recorded.VertxHttpProcessor$openSocket1873327713.deploy(Unknown Source)
+	... 8 more
+Caused by: java.util.concurrent.ExecutionException: io.quarkus.runtime.QuarkusBindException: Port already bound: 8081: Address already in use: bind
+	at java.base/java.util.concurrent.CompletableFuture.wrapInExecutionException(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:442)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2119)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder.doServerStart(VertxHttpRecorder.java:920)
+	... 11 more
+Caused by: io.quarkus.runtime.QuarkusBindException: Port already bound: 8081: Address already in use: bind
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$WebDeploymentVerticle$3.handle(VertxHttpRecorder.java:1389)
+	at io.quarkus.vertx.http.runtime.VertxHttpRecorder$WebDeploymentVerticle$3.handle(VertxHttpRecorder.java:1384)
+	at io.vertx.core.impl.future.FutureImpl$4.onFailure(FutureImpl.java:188)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:81)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:278)
+	at io.vertx.core.impl.future.FixedMapping.onFailure(FixedMapping.java:36)
+	at io.vertx.core.impl.future.FutureBase.emitFailure(FutureBase.java:81)
+	at io.vertx.core.impl.future.FutureImpl.tryFail(FutureImpl.java:278)
+	at io.vertx.core.impl.future.FixedMapping.onFailure(FixedMapping.java:36)
+	at io.vertx.core.impl.future.FutureImpl$ListenerArray.onFailure(FutureImpl.java:316)
+	at io.vertx.core.impl.future.FutureBase.lambda$emitFailure$1(FutureBase.java:75)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+
